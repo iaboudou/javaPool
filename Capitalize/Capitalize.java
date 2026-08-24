@@ -12,11 +12,12 @@ public class Capitalize {
         char previousChar = ' ';
 
         while( (r = in.read(d) ) != -1) {
-            String cap = capitalizeString(new String(d, 0, r), previousChar);
-            previousChar = (char) d[r-1];
+
+            String str = new String(d, 0, r);
+            String cap = capitalizeString(str.trim(), previousChar);
+            previousChar = (char) str.charAt(str.length() - 1);
             out.write(cap.getBytes());
         }
-
         in.close();
         out.close();
     }
@@ -37,6 +38,8 @@ public class Capitalize {
                 res += input.charAt(i);
             }
         }
+
+        res = res.replaceAll("\\s+", " ");
         return res;
     }
 }
