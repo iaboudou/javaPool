@@ -18,9 +18,9 @@ public class FileSearch {
                         return f;
                     }
                 }
-                System.out.println(name);
+                // System.out.println(name);
             }
         }
-        return currentEntry ;
+        return null ;
     }
 }
