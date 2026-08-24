@@ -14,6 +14,9 @@ public class Capitalize {
             String cap = capitalizeString(new String(d));
             out.write(cap.getBytes(), 0, r);
         }
+
+        in.close();
+        out.close();
     }
 
     static String capitalizeString(String input) {
@@ -21,12 +24,17 @@ public class Capitalize {
         String res = "";
         for (int i=0; i<input.length(); i++) {
             if (
-                i == 0 
+                (i == 0 && String.format("%s", input.charAt(i)).matches("[a-z]")) 
                 || ( i > 0 && String.format("%s", input.charAt(i)).matches("[a-z]") && Character.isWhitespace(input.charAt(i-1))) 
                 ) {
                 res += (char)(input.charAt(i) + 'A' - 'a');
             }else {
-                res += input.charAt(i);
+
+                if (String.format("%s", input.charAt(i)).matches("[A-Z]")) {
+                    res += (char)(input.charAt(i) + 'a' - 'A' );
+                }else {
+                    res += input.charAt(i);
+                }
             }
         }
 
