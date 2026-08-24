@@ -14,7 +14,7 @@ public class Capitalize {
         while( (r = in.read(d) ) != -1) {
             String cap = capitalizeString(new String(d, 0, r), previousChar);
             previousChar = (char) d[r-1];
-            out.write(cap.getBytes(), 0, r);
+            out.write(cap.getBytes());
         }
 
         in.close();
@@ -27,7 +27,7 @@ public class Capitalize {
 
             boolean isUpperCase = String.format("%s", input.charAt(i)).matches("[A-Z]");
             boolean isLowerCase = String.format("%s", input.charAt(i)).matches("[a-z]");
-            boolean previousCharisWhiteSpace = (Character.isWhitespace(prevChar) && i == 0) ? true : Character.isWhitespace(input.charAt(i-1));
+            boolean previousCharisWhiteSpace = i == 0 ? Character.isWhitespace(prevChar) : Character.isWhitespace(input.charAt(i-1));
 
             if ( (i == 0 && isLowerCase) || (i > 0 &&  previousCharisWhiteSpace && isLowerCase)  ) {
                 res += (char)(input.charAt(i) + 'A' - 'a');
