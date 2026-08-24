@@ -1,6 +1,6 @@
 public class FileSearch {
     public static String searchFile(String fileName) {
-        java.io.File obj = new java.io.File("FileSearch/documents");
+        java.io.File obj = new java.io.File("documents");
         obj = findFile(obj, fileName);
         return obj == null ? null : obj.getPath();
     }
