@@ -8,10 +8,12 @@ public class Capitalize {
         java.io.FileInputStream in = new java.io.FileInputStream(args[0]);
         java.io.FileOutputStream out = new java.io.FileOutputStream(args[1]);
         int r = 0;
-        byte[] d = new byte[10000];
+        byte[] d = new byte[1024];
+        char previousChar = ' ';
 
         while( (r = in.read(d) ) != -1) {
-            String cap = capitalizeString(new String(d));
+            String cap = capitalizeString(new String(d, 0, r), previousChar);
+            previousChar = (char) d[r-1];
             out.write(cap.getBytes(), 0, r);
         }
 
@@ -19,13 +21,13 @@ public class Capitalize {
         out.close();
     }
 
-    static String capitalizeString(String input) {
+    static String capitalizeString(String input, char prevChar) {
         String res = "";
         for (int i=0; i<input.length(); i++) {
 
             boolean isUpperCase = String.format("%s", input.charAt(i)).matches("[A-Z]");
             boolean isLowerCase = String.format("%s", input.charAt(i)).matches("[a-z]");
-            boolean previousCharisWhiteSpace = i == 0 ? true : Character.isWhitespace(input.charAt(i-1));
+            boolean previousCharisWhiteSpace = (Character.isWhitespace(prevChar) && i == 0) ? true : Character.isWhitespace(input.charAt(i-1));
 
             if ( (i == 0 && isLowerCase) || (i > 0 &&  previousCharisWhiteSpace && isLowerCase)  ) {
                 res += (char)(input.charAt(i) + 'A' - 'a');
