@@ -1,5 +1,5 @@
 public class Galaxy {
-    java.util.List<CelestialObject> celestialObjects;
+    private java.util.List<CelestialObject> celestialObjects;
 
     public Galaxy(){
         celestialObjects = new java.util.ArrayList<CelestialObject>();
