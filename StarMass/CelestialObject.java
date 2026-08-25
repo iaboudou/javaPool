@@ -1,6 +1,6 @@
 public class CelestialObject {
     public double x, y, z;
-    public int mass;
+    public Integer mass;
     public String name;
     public final static double KM_IN_ONE_AU =  150_000_000;
 
