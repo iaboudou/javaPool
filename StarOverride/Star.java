@@ -21,11 +21,11 @@ public class Star extends CelestialObject {
     }
 
     public boolean equals(CelestialObject c) {
-        return c == null ? false : this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name);
+        return c == null ? false : this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name) && this.magnitude == magnitude;
     }
 
     public int hashCode() {
-        return java.util.Objects.hash(name, x, y, z);
+        return java.util.Objects.hash(name, x, y, z, magnitude);
     }
 
 }
