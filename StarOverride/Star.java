@@ -21,8 +21,14 @@ public class Star extends CelestialObject {
     }
 
     public boolean equals(Object obj) {
+        
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
         Star c = (Star) obj;
-        return c == null ? false : this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name) && this.magnitude == magnitude;
+
+        return super.equals(c) && this.magnitude == c.magnitude;
     }
 
     public int hashCode() {

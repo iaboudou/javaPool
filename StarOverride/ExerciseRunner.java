@@ -4,6 +4,10 @@ public class ExerciseRunner {
         Star star = new Star();
         Star star2 = new Star();
         Star proxima = new Star("Proxima", 18.389, 832.32, 218, 0.4);
+        CelestialObject c = new CelestialObject();
+
+        // System.out.println(c);
+        System.out.println(star.equals(c));
         
         System.out.println(star.toString());
         System.out.println(proxima.toString());
