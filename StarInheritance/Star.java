@@ -1,4 +1,4 @@
-public class Star extends StarUtils.CelestialObject {
+public class Star extends CelestialObject {
     private double magnitude;
 
     public double getMagnitude() {
