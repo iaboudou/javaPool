@@ -1,6 +1,6 @@
 public class CelestialObject {
     public double x, y, z;
-    public int mass;
+    private int mass;
     public String name;
     public final static double KM_IN_ONE_AU =  150_000_000;
 
@@ -56,8 +56,8 @@ public class CelestialObject {
         this.name = name;
     }
 
-    public String getMass() {
-        return String.format("%d",this.mass);
+    public int getMass() {
+        return this.mass;
     }
     public void setMass(int mass) {
         this.mass = mass;
