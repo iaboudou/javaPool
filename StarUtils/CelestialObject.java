@@ -59,7 +59,7 @@ public class CelestialObject {
     }
 
     public boolean equals(CelestialObject c) {
-            return this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name);
+        return c == null ? false : this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name);
     }
 
     public int hashCode() {
