@@ -20,7 +20,8 @@ public class Star extends CelestialObject {
         return String.format("%s shines at the %.3f magnitude", name, this.magnitude);
     }
 
-    public boolean equals(CelestialObject c) {
+    public boolean equals(Object obj) {
+        Star c = (Star) obj;
         return c == null ? false : this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name) && this.magnitude == magnitude;
     }
 

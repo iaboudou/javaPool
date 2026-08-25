@@ -58,7 +58,9 @@ public class CelestialObject {
         return String.format("%s is positioned at (%.3f, %.3f, %.3f)", name, x, y, z);
     }
 
-    public boolean equals(CelestialObject c) {
+    public boolean equals(Object obj) {
+
+        CelestialObject c = (CelestialObject) obj;
         return c == null ? false : this.x == c.x && this.y == c.y && this.z == c.z && this.name.equals(c.name);
     }
 
