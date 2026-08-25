@@ -22,4 +22,35 @@ public class CelestialObject {
     public static double getDistanceBetweenInKm(CelestialObject a, CelestialObject b) {
         return getDistanceBetween(a, b) * KM_IN_ONE_AU;
     }
+
+        public double getX() {
+        return this.x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+    
+    public double getY() {
+        return this.y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+    
+    public double getZ() {
+        return this.z;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
+    }
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
