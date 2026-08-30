@@ -16,7 +16,7 @@ public abstract class Character {
     public int getCurrentHealth() {
         return currentHealth;
     }
-    public void setCurrentHealth(int currH) {
+    protected void setCurrentHealth(int currH) {
         currentHealth = currH;
     }
     public String getName() {
