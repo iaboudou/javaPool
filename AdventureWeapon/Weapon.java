@@ -15,7 +15,7 @@ public class Weapon {
     }
 
     public String toString() {
-        return String.format("%s deals %d damages.", getName(), getDamage() );
+        return String.format("%s deals %d damages", getName(), getDamage() );
     }
 
     public static void main(String[] args) {
