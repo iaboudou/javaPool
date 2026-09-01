@@ -2,10 +2,10 @@ import java.util.List;
 
 public class ListSearchIndex {
     public static Integer findLastIndex(List<Integer> list, Integer value) {
-        return list == null ? null : list.lastIndexOf(value);
+        return (list == null || !list.contains(value)) ? null : list.lastIndexOf(value);
     }
     public static Integer findFirstIndex(List<Integer> list, Integer value) {
-        return list == null ? null : list.indexOf(value);
+        return (list == null || !list.contains(value)) ? null : list.indexOf(value);
     }
     public static List<Integer> findAllIndexes(List<Integer> list, Integer value) {
 
@@ -23,7 +23,7 @@ public class ListSearchIndex {
     }
 
     public static void main(String[] args) {
-        System.out.println(ListSearchIndex.findLastIndex(List.of(9, 13, 89, 8, 23, 1, 0, 89), 89));
+        System.out.println(ListSearchIndex.findLastIndex(List.of(9, 13, 89, 8, 23, 1, 0, 89), 9999));
         System.out.println(ListSearchIndex.findFirstIndex(List.of(9, 13, 89, 8, 23, 1, 0, 89), 89));
         System.out.println(ListSearchIndex.findAllIndexes(List.of(43784, 327, 1903, 3847, 327, 327, 3289), 43784).toString());
         System.out.println(ListSearchIndex.findLastIndex(null, 5));
