@@ -53,19 +53,23 @@ public abstract class Character {
         return res;
     }
 
-    public static Character fight(Character c1, Character c2) throws DeadCharacterException{
+    public static Character fight(Character c1, Character c2) {
 
-        for (;;) {
-            c1.attack(c2);
+        try {
+            for (;;) {
+                c1.attack(c2);
 
-            if (c2.getCurrentHealth() == 0) {
-                return c1;
+                if (c2.getCurrentHealth() == 0) {
+                    return c1;
+                }
+                c2.attack(c1);
+
+                if (c1.getCurrentHealth() == 0) {
+                    return c2;
+                }
             }
-            c2.attack(c1);
-
-            if (c1.getCurrentHealth() == 0) {
-                return c2;
-            }
+        } catch(DeadCharacterException d) {
+            return null;
         }
     }
 }
